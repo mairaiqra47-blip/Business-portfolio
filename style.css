@@ -1,0 +1,1210 @@
+/* ==========================================================
+   PORTFOLIO STYLESHEET: photo-inspired palette
+   Ivory, carved charcoal, antique silver, shawl red, saffron, teal
+   ========================================================== */
+
+:root {
+  --bg: #1B1815;
+  /* carved charcoal: page background */
+  --surface: #242019;
+  /* deeper band for alternate sections */
+  --card: #2E2820;
+  /* card background */
+  --ivory: #F6F0E4;
+  /* outfit ivory: headings and main text */
+  --muted: #D2C6B4;
+  /* warm grey-ivory: body text */
+  --silver: #9A958C;
+  /* antique silver: secondary text */
+  --red: #B8382D;
+  /* shawl red: buttons */
+  --gold: #D9962B;
+  /* saffron: accents, borders, numbers */
+  --teal: #2F6B66;
+  /* thread teal: hover details */
+  --border: rgba(217, 150, 43, 0.35);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================
+   1. RESET
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* ==========================================================
+   2. LAYOUT
+   ========================================================== */
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+section {
+  padding: 120px 0;
+  position: relative;
+  scroll-margin-top: 110px;
+  background: var(--bg);
+}
+
+#education,
+#interests,
+#skills {
+  background: var(--surface);
+}
+
+#contact {
+  background: var(--card);
+}
+
+/* ==========================================================
+   3. TYPOGRAPHY
+   ========================================================== */
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ivory);
+}
+
+h2 {
+  font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+  margin-bottom: 2.5rem;
+}
+
+h2 em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 700;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 4px;
+  margin-top: 1.2rem;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+p,
+li {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+p {
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================
+   4. BUTTONS
+   ========================================================== */
+.btn {
+  display: inline-block;
+  padding: 1.1rem 2.4rem;
+  border-radius: 999px;
+  background: var(--red);
+  color: var(--ivory);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -10px rgba(184, 56, 45, 0.6);
+}
+
+/* ==========================================================
+   5. NAVIGATION: larger, bold links
+   ========================================================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 4%;
+  background: var(--bg);
+  border-bottom: 2px solid var(--gold);
+  transition: background 0.5s var(--ease), padding 0.5s var(--ease);
+}
+
+nav.scrolled {
+  background: rgba(27, 24, 21, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 4%;
+}
+
+nav>a {
+  flex-shrink: 0;
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--ivory);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul a {
+  position: relative;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  transition: color 0.3s;
+}
+
+nav ul a:hover {
+  color: var(--gold);
+}
+
+nav ul a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease);
+}
+
+nav ul a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ==========================================================
+   6. HERO
+   ========================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 120px;
+}
+
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--serif);
+  font-size: clamp(4rem, 16vw, 14rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  max-width: 100%;
+  color: rgba(217, 150, 43, 0.08);
+  white-space: nowrap;
+  z-index: 0;
+  user-select: none;
+  animation: fadeIn 2s 0.2s var(--ease) both;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-greeting {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--gold);
+  animation: textRise 1s 1.4s var(--ease) both;
+}
+
+.hero-name {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+  margin: 0.4rem 0 1rem;
+  color: var(--ivory);
+  animation: textRise 1s 1.6s var(--ease) both;
+}
+
+.hero-role {
+  color: var(--silver);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: textRise 1s 1.8s var(--ease) both;
+}
+
+.hero-photo {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  justify-self: center;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.7);
+  animation: photoIn 1.4s var(--ease) both;
+}
+
+/* ==========================================================
+   7. ABOUT: large photo beside the text
+   ========================================================== */
+#about .container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+#about .container>* {
+  min-width: 0;
+}
+
+#about .about-photo {
+  position: static;
+  transform: none;
+  width: 100%;
+  max-width: 460px;
+  justify-self: end;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.7);
+}
+
+#about .about-text p {
+  font-size: 1.2rem;
+  max-width: none;
+}
+
+/* ==========================================================
+   8. CARDS: portrait boxes, centered in rows
+   Education and experience: 3 per row
+   Research and achievements: 3 per row, last row centered
+   ========================================================== */
+#education .container,
+#experience .container,
+#interests .container,
+#achievements .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#education .container>h2,
+#experience .container>h2,
+#interests .container>h2,
+#achievements .container>h2,
+#contact .container>h2 {
+  flex: 0 0 100%;
+  text-align: center;
+}
+
+#education .container>h2::after,
+#experience .container>h2::after,
+#interests .container>h2::after,
+#achievements .container>h2::after,
+#contact .container>h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.education-item,
+.experience-item,
+.interest-item,
+.achievement-item {
+  flex: 0 0 calc((100% - 4rem) / 3);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--gold);
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  margin-bottom: 0;
+  box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.8);
+  transition: transform 0.5s var(--ease), border-color 0.5s, box-shadow 0.5s var(--ease);
+}
+
+.education-item:hover,
+.experience-item:hover,
+.interest-item:hover,
+.achievement-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 30px 60px -28px rgba(217, 150, 43, 0.35);
+}
+
+.education-item h3,
+.experience-item h3,
+.interest-item h3,
+.achievement-item h3 {
+  font-size: 1.7rem;
+  color: var(--ivory);
+  margin-bottom: 0.8rem;
+}
+
+.education-item p,
+.experience-item p,
+.interest-item p,
+.achievement-item p {
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+/* Experience: big numbers 01, 02, 03 */
+#experience {
+  counter-reset: exp;
+}
+
+.experience-item {
+  counter-increment: exp;
+}
+
+.experience-item::before {
+  content: counter(exp, decimal-leading-zero);
+  font-family: var(--serif);
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.experience-item ul {
+  margin-top: 0.8rem;
+  width: 100%;
+}
+
+.experience-item li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 1.4rem;
+  color: var(--muted);
+  border-bottom: 1px dashed rgba(154, 149, 140, 0.35);
+}
+
+.experience-item li:last-child {
+  border-bottom: none;
+}
+
+.experience-item li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.1em;
+  width: 8px;
+  height: 2px;
+  background: var(--red);
+}
+
+/* ==========================================================
+   9. SKILLS: three cards in a grid
+   ========================================================== */
+#skills .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+#skills .container>h2 {
+  grid-column: 1 / -1;
+}
+
+.skill-group {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.8);
+}
+
+.skill-group h3 {
+  font-size: 1.6rem;
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.skill-group li {
+  font-size: 1.1rem;
+  color: var(--ivory);
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed rgba(154, 149, 140, 0.35);
+}
+
+.skill-group li:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================================
+   10. LANGUAGES: bold pills
+   ========================================================== */
+#languages ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#languages li {
+  background: var(--card);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--ivory);
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0.9rem 1.8rem;
+  transition: background 0.4s, color 0.4s;
+}
+
+#languages li:hover {
+  background: var(--red);
+  color: var(--ivory);
+}
+
+/* ==========================================================
+   11. CONTACT: each detail in its own card
+   ========================================================== */
+#contact .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+#contact p {
+  flex: 0 0 calc((100% - 1.5rem) / 2);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--gold);
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 0;
+  font-size: 1.15rem;
+  color: var(--ivory);
+  transition: border-color 0.4s, transform 0.4s var(--ease);
+}
+
+#contact p:hover {
+  border-left-color: var(--red);
+  transform: translateY(-4px);
+}
+
+#contact a {
+  color: var(--ivory);
+  border-bottom: 2px solid var(--gold);
+  transition: color 0.3s;
+}
+
+#contact a:hover {
+  color: var(--gold);
+}
+
+/* ==========================================================
+   12. FOOTER
+   ========================================================== */
+footer {
+  background: var(--bg);
+  color: var(--silver);
+  border-top: 2px solid var(--gold);
+  padding: 2.5rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================
+   13. SCROLL REVEAL
+   ========================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ==========================================================
+   14. ANIMATIONS
+   ========================================================== */
+@keyframes photoIn {
+  from {
+    opacity: 0;
+    transform: translateX(160px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes photoInMobile {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textRise {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================
+   15. RESPONSIVE
+   ========================================================== */
+@media (max-width: 1000px) {
+  section {
+    padding: 100px 0;
+  }
+
+  #about .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  #about .about-photo {
+    justify-self: center;
+    max-width: 380px;
+  }
+
+  .education-item,
+  .experience-item,
+  .interest-item,
+  .achievement-item {
+    flex: 0 0 calc((100% - 2rem) / 2);
+  }
+
+  #skills .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  nav>a {
+    text-align: center;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  nav ul a {
+    font-size: 0.95rem;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-photo {
+    order: -1;
+    max-width: 300px;
+    animation-name: photoInMobile;
+  }
+
+  .education-item,
+  .experience-item,
+  .interest-item,
+  .achievement-item,
+  #contact p {
+    flex: 0 0 100%;
+    min-height: 0;
+  }
+
+  #skills .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================
+   16. REDUCED MOTION
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================
+   LESS BOLD: lighter font weights across the page
+   Paste at the very end. Layout and colors are unchanged.
+   ========================================================== */
+
+/* Headings: regular weight, elegant serif */
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+h2 em {
+  font-weight: 400;
+}
+
+/* Hero name: medium instead of extra-bold */
+.hero-name {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.hero-role {
+  font-weight: 400;
+}
+
+.hero-greeting {
+  font-weight: 400;
+}
+
+/* Navigation: lighter links and logo */
+nav>a {
+  font-weight: 500;
+}
+
+nav ul a {
+  font-weight: 400;
+}
+
+/* Eyebrow labels */
+.eyebrow {
+  font-weight: 500;
+}
+
+/* Card and skill titles */
+.education-item h3,
+.experience-item h3,
+.interest-item h3,
+.achievement-item h3,
+.skill-group h3 {
+  font-weight: 500;
+}
+
+/* Experience numbers 01, 02, 03 */
+.experience-item::before {
+  font-weight: 400;
+}
+
+/* Body text and list items */
+.skill-group li,
+.experience-item li {
+  font-weight: 400;
+}
+
+/* Language pills */
+#languages li {
+  font-weight: 400;
+}
+
+/* Buttons */
+.btn {
+  font-weight: 500;
+}
+
+/* Contact details */
+#contact p {
+  font-weight: 400;
+}
+
+#contact a {
+  font-weight: 500;
+}
+
+/* ==========================================================
+   NAV: all links in one row
+   Paste at the very end. Layout and colors are unchanged.
+   ========================================================== */
+
+nav {
+  flex-wrap: wrap;
+}
+
+nav ul {
+  flex-wrap: nowrap;
+  gap: 1rem;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+nav ul a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+nav>a {
+  font-size: 1.6rem;
+}
+
+/* Smaller laptop screens: logo on top, links in one centered row */
+@media (max-width: 1280px) {
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  nav>a {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  nav ul {
+    justify-content: center;
+    width: 100%;
+    gap: 1.1rem;
+  }
+}
+
+/* Phones: allow the links to wrap neatly */
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+  }
+
+  nav ul a {
+    font-size: 0.72rem;
+  }
+}
+
+/* ==========================================================
+   ABOUT: photo on the left, heading and text on the right
+   Paste at the very end. No HTML change needed.
+   ========================================================== */
+
+#about .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6rem;
+  row-gap: 1.2rem;
+  align-items: start;
+}
+
+/* Photo: left column, vertically centered beside the text */
+#about .about-photo {
+  grid-column: 1;
+  grid-row: 1 / span 12;
+  align-self: center;
+  position: static;
+  transform: none;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.7);
+}
+
+/* Everything else (eyebrow, heading, paragraphs): right column, stacked */
+#about .container> :not(.about-photo) {
+  grid-column: 2;
+  min-width: 0;
+}
+
+#about h2 {
+  margin-bottom: 1.5rem;
+}
+
+#about p {
+  font-size: 1.2rem;
+  max-width: none;
+  margin-bottom: 0.8rem;
+}
+
+/* Tablets and phones: stacked, photo first */
+@media (max-width: 1000px) {
+  #about .container {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  #about .about-photo {
+    grid-column: 1;
+    grid-row: auto;
+    align-self: auto;
+    max-width: 380px;
+    justify-self: center;
+  }
+
+  #about .container> :not(.about-photo) {
+    grid-column: 1;
+  }
+}
+
+/* ==========================================================
+   SMALL PORTRAIT CARDS: Education and Achievements
+   Paste at the very end. Forces the cards to small portrait size.
+   ========================================================== */
+
+#education .container,
+#achievements .container {
+  display: block !important;
+  text-align: center !important;
+  font-size: 0;
+}
+
+#education .container>h2,
+#achievements .container>h2 {
+  font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+  text-align: center;
+}
+
+.education-item,
+.achievement-item {
+  display: inline-block !important;
+  vertical-align: top;
+  width: 230px !important;
+  max-width: 100% !important;
+  min-height: 0 !important;
+  aspect-ratio: 3 / 4;
+  margin: 0.75rem !important;
+  padding: 1.6rem 1.2rem !important;
+  text-align: center;
+  font-size: 1rem;
+  white-space: normal;
+  overflow: hidden;
+  display: inline-flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 4px solid var(--gold) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 40px -25px rgba(0, 0, 0, 0.8) !important;
+}
+
+.education-item h3,
+.achievement-item h3 {
+  font-size: 1.3rem !important;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+.education-item p,
+.achievement-item p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Tablets: 2 per row */
+@media (max-width: 1000px) {
+
+  .education-item,
+  .achievement-item {
+    width: 46% !important;
+    max-width: 260px !important;
+  }
+}
+
+/* Phones: 2 per row, smaller */
+@media (max-width: 600px) {
+
+  .education-item,
+  .achievement-item {
+    width: 44% !important;
+    padding: 1.2rem 0.9rem !important;
+  }
+}
+
+/* ==========================================================
+   FAST ANIMATIONS: under 1 second, no long delays
+   Paste at the very end.
+   ========================================================== */
+
+.hero-bg-text {
+  animation: fadeIn 1s var(--ease) both;
+}
+
+.hero-greeting {
+  animation: textRise 0.6s 0.1s var(--ease) both;
+}
+
+.hero-name {
+  animation: textRise 0.6s 0.2s var(--ease) both;
+}
+
+.hero-role {
+  animation: textRise 0.6s 0.3s var(--ease) both;
+}
+
+.hero-photo {
+  animation: photoIn 0.8s var(--ease) both;
+}
+
+/* Scroll reveal: content fades up as it enters the screen */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), border-color 0.4s, box-shadow 0.4s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cards keep their hover lift after they appear */
+.education-item.visible:hover,
+.experience-item.visible:hover,
+.interest-item.visible:hover,
+.achievement-item.visible:hover {
+  transform: translateY(-8px);
+}
+
+/* Mobile: slightly quicker */
+@media (max-width: 768px) {
+  .reveal {
+    transition-duration: 0.4s;
+  }
+}
+
+/* Home: short intro line under the role */
+.hero-tagline {
+  max-width: 480px;
+  margin-top: 1.4rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--gold);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ivory);
+  animation: textRise 0.6s 0.4s var(--ease) both;
+}
+
+@media (max-width: 768px) {
+  .hero-tagline {
+    margin-left: auto;
+    margin-right: auto;
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+/* ==========================================================
+   HOME TAGLINE: animated word by word
+   Paste at the very end.
+   ========================================================== */
+
+.hero-tagline {
+  max-width: 480px;
+  margin-top: 1.4rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--gold);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ivory);
+  opacity: 1;
+  animation: none;
+}
+
+.hero-tagline .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: wordRise 0.5s var(--ease) forwards;
+  animation-delay: calc(0.5s + var(--i) * 0.05s);
+}
+
+@keyframes wordRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-tagline {
+    margin-left: auto;
+    margin-right: auto;
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+/* ==========================================================
+   TAGLINE TIMING: change these numbers to speed up or slow down
+   Smaller = faster, larger = slower
+   ========================================================== */
+:root {
+  --tag-box-dur: 0.6s;
+  /* how long the box takes to appear */
+  --tag-box-delay: 0.1s;
+  /* wait before the box appears */
+  --tag-line-dur: 0.5s;
+  /* gold line drawing across the top */
+  --tag-line-delay: 0.3s;
+  /* wait before the gold line starts */
+  --tag-sweep-dur: 1s;
+  /* light sweep across the box */
+  --tag-sweep-delay: 0.8s;
+  /* wait before the light sweep */
+  --tag-word-dur: 0.4s;
+  /* each word's rise */
+  --tag-word-start: 0.3s;
+  /* wait before the first word */
+  --tag-word-step: 0.05s;
+  /* gap between one word and the next */
+}
+
+.hero-tagline {
+  animation: boxIn var(--tag-box-dur) var(--tag-box-delay) var(--ease) both;
+}
+
+.hero-tagline::before {
+  animation: drawTop var(--tag-line-dur) var(--tag-line-delay) var(--ease) forwards;
+}
+
+.hero-tagline::after {
+  animation: sweep var(--tag-sweep-dur) var(--tag-sweep-delay) var(--ease) forwards;
+}
+
+.hero-tagline .word {
+  animation: wordReveal var(--tag-word-dur) var(--ease) forwards;
+  animation-delay: calc(var(--tag-word-start) + var(--i) * var(--tag-word-step));
+}
+
+/* Contact buttons: call and WhatsApp */
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-actions .btn {
+  min-width: 200px;
+  text-align: center;
+}
